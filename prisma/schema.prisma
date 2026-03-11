@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String          @id @default(uuid())
+  email           String          @unique
+  password        String
+  trades          Trade[]
+  templates       Template[]
+  checklistItems  ChecklistItem[]
+  settings        Settings?
+}
+
+model ChecklistItem {
+  id          String
+  text        String
+  isMandatory Boolean
+  category    String
+  order       Int
+  userId      String
+  User        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@id([id, userId])
+}
+
+model Trade {
+  id               String
+  date             DateTime
+  pair             String
+  direction        String
+  timeframe        String
+  session          String?
+  risk             Float
+  lotSize          Float
+  entryReason      String?  @db.Text
+  notes            String?  @db.Text
+  screenshot       String?  @db.LongText
+  checklistResults Json
+  score            Float
+  userId           String
+  User             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@id([id, userId])
+}
+
+model Template {
+  id     String
+  name   String
+  items  Json
+  userId String
+  User   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@id([id, userId])
+}
+
+model Settings {
+  id             Int    @id @default(autoincrement())
+  customSessions Json
+  userId         String @unique
+  User           User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

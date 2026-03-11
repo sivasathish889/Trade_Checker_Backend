@@ -1,0 +1,91 @@
+{
+  "checklistItems": [
+    {
+      "id": "1",
+      "text": "Market structure aligned with trade direction",
+      "isMandatory": true,
+      "category": "entry",
+      "order": 0
+    },
+    {
+      "id": "2",
+      "text": "Price at key support/resistance level",
+      "isMandatory": true,
+      "category": "entry",
+      "order": 1
+    },
+    {
+      "id": "3",
+      "text": "Timeframe alignment (HTF → LTF)",
+      "isMandatory": false,
+      "category": "entry",
+      "order": 2
+    },
+    {
+      "id": "4",
+      "text": "Clear entry trigger candle pattern",
+      "isMandatory": true,
+      "category": "confirmation",
+      "order": 3
+    },
+    {
+      "id": "5",
+      "text": "Volume confirmation present",
+      "isMandatory": false,
+      "category": "confirmation",
+      "order": 4
+    },
+    {
+      "id": "6",
+      "text": "RSI/Momentum indicator confirms direction",
+      "isMandatory": false,
+      "category": "confirmation",
+      "order": 5
+    },
+    {
+      "id": "7",
+      "text": "Stop loss placed at logical level",
+      "isMandatory": true,
+      "category": "risk",
+      "order": 6
+    },
+    {
+      "id": "8",
+      "text": "Risk-reward ratio minimum 1:2",
+      "isMandatory": true,
+      "category": "risk",
+      "order": 7
+    },
+    {
+      "id": "9",
+      "text": "Position size calculated correctly",
+      "isMandatory": true,
+      "category": "risk",
+      "order": 8
+    },
+    {
+      "id": "10",
+      "text": "No emotional trading - clear mindset",
+      "isMandatory": false,
+      "category": "psychology",
+      "order": 9
+    },
+    {
+      "id": "11",
+      "text": "No revenge trading or overtrading",
+      "isMandatory": false,
+      "category": "psychology",
+      "order": 10
+    }
+  ],
+  "trades": [],
+  "templates": [],
+  "settings": {
+    "customSessions": [
+      "Asian Session",
+      "London Session",
+      "New York Session",
+      "London/NY Overlap"
+    ]
+  }
+}
