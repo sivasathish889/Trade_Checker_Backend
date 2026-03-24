@@ -3,21 +3,20 @@ import { prisma } from '../db/prisma.js';
 export const getAllData = async (req, res) => {
   try {
     const userId = req.user.id;
+    const checklistItems = await prisma.checklistItem.findMany({
+      where: { userId },
+      orderBy: { order: 'asc' }
+    });
 
-    const checklistItems = await prisma.checklistItem.findMany({ 
-      where: { userId }, 
-      orderBy: { order: 'asc' } 
+    const trades = await prisma.trade.findMany({
+      where: { userId },
+      orderBy: { date: 'desc' }
     });
-    
-    const trades = await prisma.trade.findMany({ 
-      where: { userId }, 
-      orderBy: { date: 'desc' } 
-    });
-    
+
     const templates = await prisma.template.findMany({
       where: { userId }
     });
-    
+
     const settingsRecord = await prisma.settings.findUnique({
       where: { userId }
     });

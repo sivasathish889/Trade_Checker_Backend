@@ -17,7 +17,7 @@ router.post('/auth/login', login);
 router.use(authMiddleware);
 
 router.get('/data', getAllData);
-router.put('/checklist', updateChecklist);
+router.put('/checklistItems', updateChecklist);
 router.post('/trades', createTrade);
 router.delete('/trades/:id', deleteTrade);
 router.post('/templates', createTemplate);
