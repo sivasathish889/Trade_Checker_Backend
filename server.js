@@ -23,6 +23,10 @@ app.use(express.json({ limit: '50mb' }));
 initDB();
 
 app.use(Logger)
+
+app.use("/", (req, res) => {
+  return res.status(200).json({ "message": "API is running" })
+})
 // API Routes mounting point
 app.use('/api', apiRoutes);
 
