@@ -24,11 +24,12 @@ initDB();
 
 app.use(Logger)
 
-app.use("/", (req, res) => {
-  return res.status(200).json({ "message": "API is running" })
-})
 // API Routes mounting point
 app.use('/api', apiRoutes);
+
+app.get("/", (req, res) => {
+  return res.status(200).json({ "message": "API is running" })
+})
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
