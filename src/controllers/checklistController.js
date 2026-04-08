@@ -2,7 +2,6 @@ import { prisma } from '../db/prisma.js';
 
 export const updateChecklist = async (req, res) => {
   try {
-    console.log(req.body)
     const rawItems = req.body;
     const userId = req.user.id;
 
